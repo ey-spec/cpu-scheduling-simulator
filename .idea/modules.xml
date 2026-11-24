@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Assi 2.iml" filepath="$PROJECT_DIR$/.idea/Assi 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CPU Scheduling/CPU Scheduling.iml" filepath="$PROJECT_DIR$/CPU Scheduling/CPU Scheduling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Process/Process.iml" filepath="$PROJECT_DIR$/Process/Process.iml" />
+    </modules>
+  </component>
+</project>

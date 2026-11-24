@@ -8,7 +8,7 @@ public class Process {
     private final int arrivalTime;
     private final int burstTime;
     private final int initialPriority;   // smaller number = higher priority
-
+    private int currentPriority;
     // Changes during the simulation
     private int remainingTime;
     private Tier tier = Tier.TIER_1;     // every process starts in Tier 1
@@ -21,6 +21,7 @@ public class Process {
         this.arrivalTime = arrivalTime;
         this.burstTime = burstTime;
         this.initialPriority = initialPriority;
+        this.currentPriority = initialPriority;
         this.remainingTime = burstTime;  // nothing executed yet
     }
 
@@ -56,4 +57,6 @@ public class Process {
     public int getFinishTime()       { return finishTime; }
     public int getTier2EntryTime()   { return tier2EntryTime; }
     public void setFinishTime(int t) { this.finishTime = t; }
+    public int getCurrentPriority()        { return currentPriority; }
+    public void setCurrentPriority(int p)  { this.currentPriority = p; }
 }

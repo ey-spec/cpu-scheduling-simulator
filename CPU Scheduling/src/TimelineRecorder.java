@@ -36,17 +36,31 @@ public class TimelineRecorder {
 
     // Prints the whole timeline
     public void print() {
-        System.out.printf("%-6s %-8s %s%n", "Time", "Running", "Queues");
+        System.out.print(toText());
+    }
+
+    // The whole timeline as text (same format as print) - used by the GUI
+    public String toText() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%-6s %-8s %s%n", "Time", "Running", "Queues"));
         for (Entry e : entries) {
             String label1 = (e.tier2 == null) ? "Ready queue: " : "Tier 1: ";
-            System.out.printf("%-6d %-8s %s%s%n", e.time, e.running, label1, e.tier1);
+            sb.append(String.format("%-6d %-8s %s%s%n", e.time, e.running, label1, e.tier1));
             if (e.tier2 != null) {
-                System.out.printf("%-6s %-8s Tier 2: %s%n", "", "", e.tier2);
+                sb.append(String.format("%-6s %-8s Tier 2: %s%n", "", "", e.tier2));
             }
             if (!e.note.isEmpty()) {
-                System.out.printf("%-6s %-8s Note: %s%n", "", "", e.note);
+                sb.append(String.format("%-6s %-8s Note: %s%n", "", "", e.note));
             }
         }
+        return sb.toString();
+    }
+
+    // One {time, running} pair per row - used by the GUI to draw the Gantt chart
+    public List<String[]> getRunningRows() {
+        List<String[]> rows = new ArrayList<>();
+        for (Entry e : entries) rows.add(new String[]{String.valueOf(e.time), e.running});
+        return rows;
     }
 
     // Empties the log so the same recorder can be reused for another run
